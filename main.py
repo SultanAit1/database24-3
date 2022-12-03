@@ -52,6 +52,17 @@ def create_student(conn, student):
     except Error as e:
         print(e)
 
+def delete_student(conn, id):
+    sql = '''DELETE FROM student WHERE id=?'''
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute(sql, (id,))
+        conn.commit()
+    except Error as e:
+        print(e)
+
+
 
 
 database = r'group_24.db'
